@@ -27,13 +27,14 @@ app.get('/status',(req,res)=>{
 
 app.post('/file-created',(req,res)=>{
     const {filename,content}=req.body;
-    try {
-    fs.writeFile(`./textfiles/${filename}.txt`, content);
-    } catch (err) {
-    console.error(err);
-    }
-    res.redirect('/');
-})
+    fs.writeFile(`./textfiles/${filename}.txt`, content, (err)=>{
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error creating file');
+        }
+        res.redirect('/');
+    });
+});
 
 
 app.post('/file-open',(req,res)=>{
