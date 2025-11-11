@@ -50,12 +50,32 @@
 
 
 
+        
+
+        <h2 class="text-2xl font-bold mt-4">Append Data In File:</h2>
+        <form action="/file-append" method="post">
+            <input type="text" name="filename" placeholder="Enter file name to append" class="text-black"/>
+            <input type="text" name="content" placeholder="Enter content to append" class="text-black"/>
+            <button type="submit" class="bg-yellow-500 rounded-lg px-4 py-2">Append Data</button>
+        </form>
+
+
+
+
+
+
 
         <h2 class="text-2xl font-bold mt-4">Delete File:</h2>
         <form action="/file-delete" method="post">
             <input type="text" name="filename" placeholder="Enter file name to delete" class="text-black"/>
             <button type="submit" class="bg-red-500 rounded-lg px-4 py-2">Delete File</button>
         </form>
+
+
+
+
+
+
     </div>
 </body>
 </html>

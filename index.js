@@ -28,7 +28,7 @@ app.get('/status',(req,res)=>{
 app.post('/file-created',(req,res)=>{
     const {filename,content}=req.body;
     try {
-    fs.writeFileSync(`./textfiles/${filename}.txt`, content);
+    fs.writeFile(`./textfiles/${filename}.txt`, content);
     } catch (err) {
     console.error(err);
     }
@@ -47,6 +47,19 @@ app.post('/file-open',(req,res)=>{
     });
 })
 
+
+
+app.post('/file-append',(req,res)=>{
+    const {filename,content}=req.body;
+
+    fs.appendFile(`./textfiles/${filename}.txt`,content,(err)=>{
+        if(err){
+            console.error(err);
+        }
+        // alert('File Updated Successfully');
+        res.redirect('/');
+    })
+})
 
 
 
