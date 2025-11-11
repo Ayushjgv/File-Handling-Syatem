@@ -24,23 +24,23 @@ You can verify the installation by running:
 ```bash
 node -v
 npm -v
-⚙️ Installation & Setup
+#⚙️ Installation & Setup
 
-Clone this repository
+#Clone this repository
 
 git clone https://github.com/your-username/File-Handling-System.git
 
 
-Navigate to the project directory
+#Navigate to the project directory
 
 cd File-Handling-System
 
 
-Install dependencies (if any)
+#Install dependencies (if any)
 
 npm install
 
 
-Run the project using Nodemon
+#Run the project using Nodemon
 
 npx nodemon index
