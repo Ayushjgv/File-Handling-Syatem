@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-screen bg-gray-900 text-white flex flex-col ">
+        <h2 class="text-2xl font-bold">File Handling System</h2>
+
+
+
+
+
+
+        <h2 class="text-2xl font-bold mt-4">Create a New File:</h2>
+        <form action="/file-created" method="post">
+            <input type="text" name="filename" placeholder="Enter file name" class="text-black"/>
+            <input type="text" name="content" placeholder="Enter file content" class="text-black"/>
+            <button type="submit" class="bg-green-500 rounded-lg px-4 py-2">Create File</button>
+        </form>
+
+
+
+
+
+        <h2 class="text-2xl font-bold mt-4">Recently Edited Files:</h2>
+        <ul class="list-disc list-inside h-auto bg grey-500 border border-gray-700 p-2 " >
+            <% files.forEach(function(file) { %>
+                 <form action="/file-open" method="post">
+                    <input type="hidden" name="filename" value="<%=file.slice(0,-4)%>"/>
+                    <button type="submit" class=" text-blue-400 text-left w-full"><%=file.slice(0,-4)%></button>
+                 </form>
+            <% }); %>
+        </ul>
+
+
+
+
+
+        <h2 class="text-2xl font-bold mt-4">Open File:</h2>
+        <form action="/file-open" method="post">
+            <input type="text" name="filename" placeholder="Enter file name to read" class="text-black"/>
+            <button type="submit" class="bg-green-500 rounded-lg px-4 py-2">Read File</button>
+        </form>
+
+
+
+
+
+
+        <h2 class="text-2xl font-bold mt-4">Delete File:</h2>
+        <form action="/file-delete" method="post">
+            <input type="text" name="filename" placeholder="Enter file name to delete" class="text-black"/>
+            <button type="submit" class="bg-red-500 rounded-lg px-4 py-2">Delete File</button>
+        </form>
+    </div>
+</body>
+</html>
